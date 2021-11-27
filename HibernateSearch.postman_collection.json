@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/author/search/b c",
+					"raw": "http://localhost:8080/author/search/Learning F",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -40,7 +40,7 @@
 					"path": [
 						"author",
 						"search",
-						"b c"
+						"Learning F"
 					]
 				}
 			},
@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorName\" : \"a b c\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
+					"raw": "{\r\n    \"authorName\" : \"Learning Foxpro\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
