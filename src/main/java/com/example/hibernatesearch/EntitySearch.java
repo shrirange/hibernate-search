@@ -21,11 +21,11 @@ public class EntitySearch {
 	private EntityManager entityManager;
 	
 	@SuppressWarnings("unchecked")
-	public SearchResult<Author> searchAuthor(Pageable page){
+	public SearchResult<Author> searchAuthor(Pageable page, String searchString){
 		SearchResult<Author> searchResult = new SearchResult<>();
 		FullTextEntityManager full = org.hibernate.search.jpa.Search.getFullTextEntityManager(entityManager);
 		QueryBuilder queryBuilder = full.getSearchFactory().buildQueryBuilder().forEntity(Author.class).get();
-		org.apache.lucene.search.Query query = queryBuilder.keyword().wildcard().onFields(new String[]{"authorName"}).matching("*a*").createQuery();
+		org.apache.lucene.search.Query query = queryBuilder.keyword().wildcard().onFields(new String[]{"authorName"}).matching("*" + searchString + "*").createQuery();
 		org.hibernate.search.jpa.FullTextQuery jpaQuery = full.createFullTextQuery(query, Author.class);
 		
 		List<Author> authors = jpaQuery.getResultList();

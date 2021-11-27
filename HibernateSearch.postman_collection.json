@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/author/search",
+					"raw": "http://localhost:8080/author/search/a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -39,7 +39,8 @@
 					"port": "8080",
 					"path": [
 						"author",
-						"search"
+						"search",
+						"a"
 					]
 				}
 			},
@@ -52,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorName\" : \"bac\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
+					"raw": "{\r\n    \"authorName\" : \"a b\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

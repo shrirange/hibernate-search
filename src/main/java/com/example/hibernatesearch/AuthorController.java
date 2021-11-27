@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +25,10 @@ public class AuthorController {
 		return authorRepository.findAll();
 	}
 	
-	@GetMapping("search")
-	public SearchResult<Author> getAuthorSearchResults(){
-		return entitySearch.searchAuthor(null);
+	@GetMapping("search/{searchString}")
+	public SearchResult<Author> getAuthorSearchResults(@PathVariable("searchString") String searchString){
+		System.out.println("searchString =" + searchString);
+		return entitySearch.searchAuthor(null, searchString);
 	}
 	
 	@PostMapping("create")
