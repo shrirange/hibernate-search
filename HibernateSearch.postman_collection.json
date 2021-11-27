@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/author/search/a  b",
+					"raw": "http://localhost:8080/author/search/b c",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -40,7 +40,7 @@
 					"path": [
 						"author",
 						"search",
-						"a  b"
+						"b c"
 					]
 				}
 			},
