@@ -28,7 +28,28 @@ public class AuthorController {
 	@GetMapping("search/{searchString}")
 	public SearchResult<Author> getAuthorSearchResults(@PathVariable("searchString") String searchString){
 		System.out.println("searchString =" + searchString);
-		return entitySearch.searchAuthor(null, searchString);
+		Criteria criteria = new Criteria();
+		criteria.setNot(false);
+		criteria.setSearchString(searchString);
+		criteria.setOperator("contains");
+		return entitySearch.searchAuthor(null, searchString, criteria);
+	}
+	
+	@PostMapping("searchWithConditions")
+	public SearchResult<Author> getAuthorSearchResultsWithConditions(@RequestBody Criteria criteria){
+		return entitySearch.searchAuthor(null, criteria.getSearchString(), criteria);
+	}
+	
+	@GetMapping("test")
+	public CriteriaCondition getCriteriaCondition() {
+		Criteria criteria = new Criteria();
+		criteria.setNot(false);
+		criteria.setSearchString("searchString");
+		criteria.setOperator("contains");
+		CriteriaCondition cc = new CriteriaCondition();
+		cc.setC1(BooleanCondition.OR);
+		cc.getListofCriteria().add(criteria);
+		return cc;
 	}
 	
 	@PostMapping("create")

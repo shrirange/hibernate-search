@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.BooleanJunction;
+import org.hibernate.search.query.dsl.MustJunction;
 import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,7 @@ public class EntitySearch {
 	private EntityManager entityManager;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public SearchResult<Author> searchAuthor(Pageable page, String searchString) {
+	public SearchResult<Author> searchAuthor(Pageable page, String searchString, Criteria criteria) {
 
 		String[] tokenized = null;
 
@@ -51,8 +52,14 @@ public class EntitySearch {
 					.matching(tokenized[tokenized.length - 1] + "*").createQuery());
 
 		} else {
-			booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorName")
-					.matching("*" + searchString + "*").createQuery());
+			
+			
+			MustJunction mustJunction = booleanJunction.must(queryBuilder.keyword().wildcard().onField(criteria.getColumnName())
+					.matching("*" + criteria.getSearchString() + "*").createQuery());
+			
+			if(criteria.isNot()) {
+				booleanJunction = mustJunction.not();
+			}
 
 		}
 		org.apache.lucene.search.Query query = booleanJunction.createQuery();
