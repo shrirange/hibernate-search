@@ -35,7 +35,7 @@ public class Author implements Serializable {
 	@Column(name = "authorId")
 	private Integer authorId;
 
-	@Analyzer(impl = WhitespaceAnalyzer.class)
+	@Analyzer(impl = CaseSensitiveAnalyzer.class)
 	@Field(store = Store.NO, analyze = Analyze.YES)
 	@Column(name = "authorName", length = 1000)
 	private String authorName;

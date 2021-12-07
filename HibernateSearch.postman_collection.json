@@ -26,12 +26,32 @@
 			"response": []
 		},
 		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/author/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"author",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getListofAuthorsSearch",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/author/search/Learning F",
+					"raw": "http://localhost:8080/author/search/r",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -40,7 +60,85 @@
 					"path": [
 						"author",
 						"search",
-						"Learning F"
+						"r"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getListofAuthorsSearchWithCapital",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author/search/R",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"search",
+								"R"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "getListofAuthorsSearchWithSmall",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author/search/r",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"search",
+								"r"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "getListofAuthorsSearchWithConditions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"columnName\" : \"authorNam\",\r\n    \"operator\" : \"contains\",\r\n    \"searchString\" : \"cc\",\r\n    \"not\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/author/searchWithConditions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"author",
+						"searchWithConditions"
 					]
 				}
 			},
@@ -53,7 +151,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorName\" : \"Learning Foxpro\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
+					"raw": "{\r\n    \"authorName\": \"rrrr\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,13 +173,13 @@
 			},
 			"response": [
 				{
-					"name": "createAuthor",
+					"name": "createAuthorWithCapital",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"authorName\" : \"bbbbb\",\r\n    \"dateofbirth\" : \"2000-12-03\"\r\n}",
+							"raw": "{\r\n    \"authorName\": \"RRR\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -101,42 +199,19 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 21 Sep 2021 08:05:24 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
+					"_postman_previewlanguage": null,
+					"header": null,
 					"cookie": [],
-					"body": "{\n    \"savedState\": null,\n    \"authorId\": 1,\n    \"authorName\": \"bbbbb\",\n    \"dateofbirth\": \"2000-12-03\"\n}"
+					"body": null
 				},
 				{
-					"name": "createAuthor",
+					"name": "createAuthorWithSmall",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"authorName\" : \"bbbbb\",\r\n    \"dateofbirth\" : \"2000-12-03\",\r\n    \"publishers\"  : [{\r\n       \r\n        \"publisherName\" : \"publisherqqqqq\"\r\n    }\r\n\r\n    ]\r\n}",
+							"raw": "{\r\n    \"authorName\": \"rrrr\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -156,33 +231,10 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 21 Sep 2021 10:47:12 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
+					"_postman_previewlanguage": null,
+					"header": null,
 					"cookie": [],
-					"body": "{\n    \"savedState\": null,\n    \"authorId\": 1,\n    \"authorName\": \"bbbbb\",\n    \"dateofbirth\": \"2000-12-03\",\n    \"publishers\": [\n        {\n            \"publisherId\": 2,\n            \"publisherName\": \"publisherqqqqq\",\n            \"savedState\": null\n        }\n    ]\n}"
+					"body": null
 				}
 			]
 		}
