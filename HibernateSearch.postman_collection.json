@@ -51,7 +51,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/author/search/r",
+					"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,18 +60,24 @@
 					"path": [
 						"author",
 						"search",
-						"r"
+						"Test"
+					],
+					"query": [
+						{
+							"key": "caseSensitive",
+							"value": "true"
+						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "getListofAuthorsSearchWithCapital",
+					"name": "getListofAuthorsSearch",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/author/search/R",
+							"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -80,7 +86,13 @@
 							"path": [
 								"author",
 								"search",
-								"R"
+								"Test"
+							],
+							"query": [
+								{
+									"key": "caseSensitive",
+									"value": "true"
+								}
 							]
 						}
 					},
@@ -90,12 +102,12 @@
 					"body": null
 				},
 				{
-					"name": "getListofAuthorsSearchWithSmall",
+					"name": "getListofAuthorsSearch",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/author/search/r",
+							"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,7 +116,13 @@
 							"path": [
 								"author",
 								"search",
-								"r"
+								"Test"
+							],
+							"query": [
+								{
+									"key": "caseSensitive",
+									"value": "true"
+								}
 							]
 						}
 					},
@@ -151,7 +169,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorName\": \"rrrr\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
+					"raw": "{\r\n    \"authorName\": \"testing\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,13 +191,13 @@
 			},
 			"response": [
 				{
-					"name": "createAuthorWithCapital",
+					"name": "createAuthor",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"authorName\": \"RRR\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
+							"raw": "{\r\n    \"authorName\": \"TestSpecimen\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -205,13 +223,13 @@
 					"body": null
 				},
 				{
-					"name": "createAuthorWithSmall",
+					"name": "createAuthor",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"authorName\": \"rrrr\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
+							"raw": "{\r\n    \"authorName\": \"testing\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

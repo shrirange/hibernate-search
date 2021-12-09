@@ -16,6 +16,7 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Analyzer;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Fields;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
@@ -35,8 +36,14 @@ public class Author implements Serializable {
 	@Column(name = "authorId")
 	private Integer authorId;
 
-	@Analyzer(impl = CaseSensitiveAnalyzer.class)
-	@Field(store = Store.NO, analyze = Analyze.YES)
+	/*
+	 * @Field(name = "authorNameCaseSensitive", store = Store.NO, analyze =
+	 * Analyze.YES, analyzer = @Analyzer(impl = WhitespaceAnalyzer.class))
+	 */
+	@Fields({@Field(name = "authorNameCaseSensitive", store = Store.NO, analyze = Analyze.YES,
+		    analyzer = @Analyzer(impl = WhitespaceAnalyzer.class)),
+			@Field(name = "authorName", store = Store.NO, analyze = Analyze.YES,
+		    analyzer = @Analyzer(impl = SimpleAnalyzer.class))})
 	@Column(name = "authorName", length = 1000)
 	private String authorName;
 

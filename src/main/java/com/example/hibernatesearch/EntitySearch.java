@@ -23,7 +23,7 @@ public class EntitySearch {
 	private EntityManager entityManager;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public SearchResult<Author> searchAuthor(Pageable page, String searchString) {
+	public SearchResult<Author> searchAuthor(Pageable page, String searchString, Boolean caseSensitive) {
 
 		String[] tokenized = null;
 
@@ -51,8 +51,14 @@ public class EntitySearch {
 					.matching(tokenized[tokenized.length - 1] + "*").createQuery());
 
 		} else {
-			booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorName")
-					.matching("*" + searchString + "*").createQuery());
+			System.out.println("Case sensitive " + caseSensitive);
+			if (caseSensitive) {
+				booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorNameCaseSensitive")
+						.matching("*" + searchString + "*").createQuery());
+			} else {
+				booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorName")
+						.matching("*" + searchString.toLowerCase() + "*").createQuery());
+			}
 
 		}
 		org.apache.lucene.search.Query query = booleanJunction.createQuery();

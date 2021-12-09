@@ -2,6 +2,8 @@ package com.example.hibernatesearch;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,9 +28,10 @@ public class AuthorController {
 	}
 	
 	@GetMapping("search/{searchString}")
-	public SearchResult<Author> getAuthorSearchResults(@PathVariable("searchString") String searchString){
+	public SearchResult<Author> getAuthorSearchResults(@PathVariable("searchString") String searchString,
+			@PathParam("caseSensitive") Boolean caseSensitive){
 		System.out.println("searchString =" + searchString);
-		return entitySearch.searchAuthor(null, searchString);
+		return entitySearch.searchAuthor(null, searchString, caseSensitive);
 	}
 	
 	@PostMapping("create")
