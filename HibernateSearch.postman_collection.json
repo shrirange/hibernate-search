@@ -51,6 +51,94 @@
 				"method": "GET",
 				"header": [],
 				"url": {
+					"raw": "http://localhost:8080/author/search/mum?caseSensitive=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"author",
+						"search",
+						"mum"
+					],
+					"query": [
+						{
+							"key": "caseSensitive",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getListofAuthorsSearch",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"search",
+								"Test"
+							],
+							"query": [
+								{
+									"key": "caseSensitive",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "getListofAuthorsSearch",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"search",
+								"Test"
+							],
+							"query": [
+								{
+									"key": "caseSensitive",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "getListofAuthorsSearch Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
 					"raw": "http://localhost:8080/author/search/Test?caseSensitive=true",
 					"protocol": "http",
 					"host": [
@@ -169,7 +257,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authorName\": \"testing\",\r\n    \"dateofbirth\": \"2000-12-03\",\r\n     \"address\": \r\n        {\r\n        \r\n            \"city\": \"wsfte\"\r\n           \r\n        }\r\n    \r\n}",
+					"raw": "{\r\n        \"authorName\": \"Shrirang\",\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

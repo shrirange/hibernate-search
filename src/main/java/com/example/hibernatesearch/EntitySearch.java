@@ -2,6 +2,7 @@ package com.example.hibernatesearch;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.BooleanJunction;
 import org.hibernate.search.query.dsl.QueryBuilder;
@@ -56,8 +57,13 @@ public class EntitySearch {
 				booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorNameCaseSensitive")
 						.matching("*" + searchString + "*").createQuery());
 			} else {
-				booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorName")
-						.matching("*" + searchString.toLowerCase() + "*").createQuery());
+				/*
+				 * booleanJunction.must(queryBuilder.keyword().wildcard().onField("authorName")
+				 * .matching("*" + searchString.toLowerCase() + "*").createQuery());
+				 */
+				System.out.println("searchStringtest =" + searchString);
+				booleanJunction.must(queryBuilder.keyword().wildcard().onField("test")
+						  .matching("*" + searchString.toLowerCase() + "*").createQuery());
 			}
 
 		}
